@@ -1,0 +1,64 @@
+! SET VIG
+AUT
+
+! --- 误差函数设置 ---
+ERR CDV
+EFT TA               ! 点列图（TA）；波前（WFR）；对比度（MTF）
+CEN YES              ! 是否质心参考；否则主光线
+! GS 1;TAR 0 10      ! 全局优化
+
+! --- 收敛控制 ---
+IMP 0.00001     
+MXC 200
+MNC 2
+
+! --- 一般约束 ---
+MXT 30        
+MNT 5        
+MNE 4.5         
+MNA 0.0001       
+MAE 0.0001       
+GLA S0..I HZLAF92 HZPK2A HK1 HF52 HZF71GT         !可见光玻璃
+! GLA S0..I  HFK61B HQK3L HKF6 QF50 HZLAF50E   !紫外玻璃
+
+! --- 特定约束 ---
+! 1. 焦距与总长
+EFL = 90; PTC 1.0 0.2 8 
+! Y R1 SI W2 F7 Z1 = -17.5 ; PTC 1.0 0.1 8 
+OAL S0..I Z1 < 400 > 300
+
+! 2. 截距
+CT S0 > 5
+ET S0 > 5
+CT SI-2 > 20  
+ET SI-2 > 20
+
+! 3. 最大半直径
+For ^s 1 21
+   SD S^s < 42
+End For
+
+! 4. 圆锥系数k
+! K S20 < 50
+! K S20 > -50
+
+! 5. 场曲
+PTZ S0..I W3 Z1 < 0.001       !这里是曲率值，对应ZEMAX中PETZ>1000
+
+! 6. 畸变
+DST S0..I W3 Z1 < 0.01>-0.01    ! 三阶畸变
+! DIY F3 Z1 < 0.01 > -0.01      ! 真实光线畸变
+
+! 7. 自定义函数
+@LEN1 == @CENZ(8);      @LEN1 > 0.05                ! 定心系数
+@LENN2 == @CENZ(10);    @LENN2 > 0.1
+@TELE == @MAX_TELE;     @TELE < 0.003               ! 远心度
+@TRA_1 == @TRA(0,0,4) ;  @TRA_1 > 0.6               ! 平均透过率
+                                                     
+DRA S0..I YES 
+GO
+
+
+
+
+
