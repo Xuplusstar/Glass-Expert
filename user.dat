@@ -1,0 +1,26 @@
+Surfaces:	2 3 5 6 8 10
+Reset Vignetting:	NO
+Catalogs Used:	USER
+User Catalog:	CDGMH.dat
+SCHOTT Availability:
+OHARA Availability:
+HOYA Availability:
+HIKARI Availability:
+NHG Availability:
+CDGM Availability:
+Delete Special Glasses:
+Eliminate Discontinued:
+Include Possible Inaccurate Dispersion:
+Max Strip Price Factor:
+Exclude Glasses Without Prices:
+Max Index:	 1.9295660000000000
+Min Index:	 1.4773710000000000
+Max Stain Resistance:
+Keep Unknown Stain:
+Continue No Stain:	YES
+User Catalog After Filtering:
+Absorption Factor:	0
+CTE Mismatch:	0
+Max Element Cost:	0
+Max Total Cost:	0
+Relative Weight:	0
