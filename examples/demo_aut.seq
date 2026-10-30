@@ -1,0 +1,13 @@
+! Demonstration only: CODE V supplied DBGAUSS, not the user's design constraints.
+! Keep the existing geometric variable definitions in the supplied lens.
+AUT
+ERR CDV
+EFT TA
+CEN YES
+EFL = 100
+MXC 20
+MNC 2
+IMP 0.0001
+EFP NO
+DRA NO
+GO

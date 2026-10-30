@@ -1,0 +1,6 @@
+*.seq -text
+*.ps1 -text
+*.py -text
+*.m -text
+*.dat -text
+*.pdf -text
